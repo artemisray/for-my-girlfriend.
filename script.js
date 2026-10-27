@@ -1,6 +1,6 @@
 
-const button = document.getElementById("openButton");
-const letter = document.getElementById("musicButton");
+const button = document.getElementById("loveButton");
+const letter = document.getElementById("lettter");
 
 button.addEventListener("click", function () {
     letter.classList.toggle("hidden");
