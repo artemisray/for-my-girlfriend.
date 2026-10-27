@@ -1,26 +1,26 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My most Favorite Person in the whole world, my rose❤️</title>
+    <title>For My Most Favorite Person in the Whole World, My Rose ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="hearts">♡ ♥ ♡ ♥ ♡</div>
+    <div class="hearts" aria-hidden="true">♡ ♥ ♡ ♥ ♡</div>
 
     <main class="card">
-        <p class="small">A little something for you darling</p>
+        <p class="small">A little something for you, darling</p>
 
-        <h1>Hey,  darling❤️</h1>
+        <h1>Hey, darling ❤️</h1>
 
         <p class="intro">
             I made this little corner of the internet
-            just for you,and yours alone.
+            just for you, and yours alone.
         </p>
 
-        <div class="flower">🌷</div>
+        <div class="flower" aria-hidden="true">🌷</div>
 
         <button type="button" id="loveButton">Open your surprise 💌</button>
 
@@ -28,61 +28,59 @@
             <h2>To my favorite person, 💕</h2>
             <p>
                 You make my ordinary days feel special.
-                My gloomy days feel brighter🌞.
+                My gloomy days feel brighter 🌞.
                 Your presence means more to me than words can explain.
-                The way you laugh,makes my heart skip a beat💗.
-                The way you talk,the way you care about me.
-                I am so grateful you came in my life.
-                i'll always choose you,nakupenda sio siri na shaidi mugu wangu,
-                malaika kwa maisha yang ni wewe daima🫰.
-
+                The way you laugh makes my heart skip a beat 💗.
+                The way you talk, the way you care about me.
+                I am so grateful you came into my life.
+                I'll always choose you, nakupenda sio siri na shaidi mugu wangu,
+                malaika kwa maisha yangu ni wewe daima 🫰.
+            </p>
+            <p>
                 No matter how far apart we are, I hope you
                 always remember how special you are to me.
-                babe ...,you are pretty,gorgeous,amazing,kind
-                and i love everything about you it will always be you.
-                Thanks for loving me, and showing me love,
-                and pulling me out of my darkness
-
+                Babe... you are pretty, gorgeous, amazing, kind,
+                and I love everything about you. It will always be you.
+                Thanks for loving me, for showing me love,
+                and for pulling me out of my darkness.
+            </p>
+            <p>
                 You are my favorite hello and my hardest goodbye ❤️.
-                i love you to the moon and back🫰.
-                ALWAYS &amp; FOREVER♾️
+                I love you to the moon and back 🫰.
+                ALWAYS &amp; FOREVER ♾️
             </p>
-            <p class="signature">Forever yours 💗
-            </p>
+            <p class="signature">Forever yours 💗</p>
         </div>
 
+        <div class="music-player">
+            <p>♫ Our song</p>
+            <button type="button" id="musicButton">▶ Play our song 💖</button>
+            <audio id="backgroundMusic" loop preload="metadata">
+                <source src="music/our-song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
-    <div class="music-player">
-    <p>♫ Our song</p>
-    <button type="button" id="musicButton">▶ Play our song 💖</button>
-    <audio id="backgroundMusic" loop>
-        <source src="music/our-song.mp3" type="audio/mpeg">
-    </audio>
-</div>
+        <section class="gallery-section">
+            <h2>My Beautiful Bivarly ❤️</h2>
+            <p>Every picture of you is a memory I treasure.</p>
 
-<section class="gallery-section">
-    <h2>My Beautiful Bivarly ❤️</h2>
-    <p>Every picture of you is a memory I treasure.</p>
-
-    <div class="gallery">
-        <img src="photos/photo1.jpg" alt="My beautiful darling">
-        <img src="photos/photo2.jpg" alt="Your beautiful smile">
-        <img src="photos/photo3.jpg" alt="A special memory">
-    </div>
-</section>
-
-
-
+            <div class="gallery">
+                <img src="photos/photo1.jpg" alt="My beautiful darling" loading="lazy" width="400" height="500">
+                <img src="photos/photo2.jpg" alt="Your beautiful smile" loading="lazy" width="400" height="500">
+                <img src="photos/photo3.jpg" alt="A special memory" loading="lazy" width="400" height="500">
+            </div>
+        </section>
 
         <p class="footer">Made with love 🥰, just for you ✨</p>
     </main>
 
-    <script src="script.js"></script>
-<div id="photoViewer" class="photo-viewer">
-    <button type="button" id="closeViewer" class="close-viewer" aria-label="Close photo">&times;</button>
-    <img id="expandedPhoto" src="photos/photo1.jpg" alt="Biverly's photo">
-</div>
+    <div id="photoViewer" class="photo-viewer" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button type="button" id="closeViewer" class="close-viewer" aria-label="Close photo">&times;</button>
+        <img id="expandedPhoto" src="" alt="Biverly's photo">
+    </div>
 
-<script src="script.js"></script>
+    <!-- Single script tag, right before </body> -->
+    <script src="script.js"></script>
 </body>
 </html>
