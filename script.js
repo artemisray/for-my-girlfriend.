@@ -1,3 +1,4 @@
+// --- Love Letter Toggle ---
 const button = document.getElementById("loveButton");
 const letter = document.getElementById("letter");
 
@@ -11,6 +12,7 @@ button.addEventListener("click", function () {
     }
 });
 
+// --- Music Player ---
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 
@@ -21,6 +23,7 @@ musicButton.addEventListener("click", async () => {
             musicButton.textContent = "❚❚ Pause our song 💗";
         } catch (error) {
             musicButton.textContent = "Try playing the song again 🎵";
+            console.error("Audio play failed:", error);
         }
     } else {
         music.pause();
@@ -28,44 +31,59 @@ musicButton.addEventListener("click", async () => {
     }
 });
 
+// Reset button if the audio ends (though you have loop="true", this is safe)
 music.addEventListener("ended", () => {
     musicButton.textContent = "▶ Play our song 💗";
 });
+
+// --- Photo Gallery Lightbox ---
 const galleryPhotos = document.querySelectorAll(".gallery img");
 const photoViewer = document.getElementById("photoViewer");
 const expandedPhoto = document.getElementById("expandedPhoto");
-const closeViewer = document.getElementById("closeViewer");console.log("Gallery photos:", galleryPhotos.length);
-console.log("Photo viewer found:", photoViewer);
+const closeViewer = document.getElementById("closeViewer");
 
-galleryPhotos.forEach(function(photo) {
+console.log("Gallery photos found:", galleryPhotos.length);
+console.log("Photo viewer element:", photoViewer);
+
+// Ensure viewer is hidden on load (safety check)
+photoViewer.style.display = "none";
+
+galleryPhotos.forEach(function (photo) {
     photo.style.cursor = "pointer";
 
-    photo.addEventListener("click", function() {
+    photo.addEventListener("click", function () {
         expandedPhoto.src = photo.src;
         expandedPhoto.alt = photo.alt;
         photoViewer.style.display = "flex";
     });
 });
 
-closeViewer.addEventListener("click", function() {
+closeViewer.addEventListener("click", function () {
     photoViewer.style.display = "none";
 });
 
-photoViewer.addEventListener("click", function(event) {
+// Close when clicking outside the photo (on the dark overlay)
+photoViewer.addEventListener("click", function (event) {
     if (event.target === photoViewer) {
         photoViewer.style.display = "none";
     }
 });
-/* Floating hearts for Biverly 💗 */
+
+// Close with Escape key (accessibility + convenience)
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && photoViewer.style.display === "flex") {
+        photoViewer.style.display = "none";
+        expandedPhoto.src = "";
+    }
+});
+
+// --- Floating Hearts Animation ---
 function createFloatingHeart() {
     const heart = document.createElement("span");
-
     heart.className = "floating-heart";
 
     const hearts = ["💗", "💕", "💖", "💘", "❤️", "💞"];
-    heart.textContent = hearts[
-        Math.floor(Math.random() * hearts.length)
-    ];
+    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (16 + Math.random() * 20) + "px";
@@ -75,13 +93,11 @@ function createFloatingHeart() {
 
     document.body.appendChild(heart);
 
-    setTimeout(function() {
+    // Clean up after animation finishes
+    setTimeout(function () {
         heart.remove();
     }, duration * 1000);
 }
 
-/* Create a new heart every 900 milliseconds */
+// Create a new heart every 900ms
 setInterval(createFloatingHeart, 900);
-
-
-
