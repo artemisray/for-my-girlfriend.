@@ -1,4 +1,4 @@
-
+/* --- Reset & Base --- */
 * {
     box-sizing: border-box;
 }
@@ -11,57 +11,74 @@ body {
     align-items: center;
     padding: 24px;
     font-family: Georgia, serif;
+    /* Romantic Purple Gradient */
     background: linear-gradient(135deg, #9c0b7d, #9c05aa);
-    color: #582b8b;
+    color: #fff; /* Default text white for contrast on dark bg */
 }
 
+/* --- Main Card --- */
 .card {
-    background: rgba(10, 62, 206, 0.9);
+    background: rgba(255, 255, 255, 0.95); /* Changed to WHITE/CREAM so text is readable */
     max-width: 520px;
     width: 100%;
     padding: 35px 25px;
     text-align: center;
     border-radius: 25px;
-    box-shadow: 0 12px 40px #3b092c25;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
 }
 
 .small {
-    color: #f107bf;
+    color: #d63384; /* Pink instead of magenta for better contrast */
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 12px;
+    font-weight: bold;
 }
 
 h1 {
     font-size: clamp(30px, 7vw, 44px);
-    color: #ee0974;
+    color: #d63384;
+    margin: 10px 0;
 }
 
 .intro {
     line-height: 1.8;
-    color: #b64e75;
+    color: #555; /* Dark gray for readability */
 }
 
 .flower {
     font-size: 65px;
     margin: 20px;
+    animation: pulse 2s infinite ease-in-out;
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- Buttons --- */
 button {
-    background: #0474be;
-    color: rgb(209, 7, 175);
+    background: #d63384; /* Pink button */
+    color: white;
     border: none;
     padding: 14px 22px;
     border-radius: 30px;
     font-size: 15px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.2s;
+    font-family: inherit;
 }
 
 button:hover {
     transform: scale(1.05);
+    background: #b02a6f;
 }
 
+/* --- Letter Section --- */
 .hidden {
     display: none;
 }
@@ -69,83 +86,88 @@ button:hover {
 #letter {
     margin-top: 25px;
     padding: 20px;
-    background: #fff0f4;
+    background: #fff0f4; /* Soft pink background for the letter */
     border-radius: 18px;
     line-height: 1.9;
+    color: #333; /* Dark text inside letter */
+    text-align: left; /* Better for reading paragraphs */
     animation: appear 0.7s ease;
+    box-shadow: inset 0 0 10px rgba(214, 51, 132, 0.1);
 }
 
 .signature {
-    color: #c44f76;
+    color: #d63384;
     font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 15px;
 }
 
+@keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Decorative Hearts --- */
 .hearts {
     position: fixed;
     top: 15px;
     right: 15px;
-    color: #e58ba7;
+    color: rgba(255, 255, 255, 0.7);
     letter-spacing: 8px;
     font-size: 22px;
     pointer-events: none;
+    z-index: 5;
 }
 
 .footer {
     margin-top: 30px;
     font-size: 13px;
-    color: #b87b90;
+    color: #888;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* --- Music Player --- */
 .music-player {
     margin: 25px 0;
     padding: 18px;
-    background: #e6e0e7;
-    border: 1px solid #f5cfdd;
+    background: #fce4ec; /* Light pink */
+    border: 1px solid #f8bbd0;
     border-radius: 18px;
 }
 
 .music-player p {
-    color: #b64e75;
+    color: #d63384;
     font-style: italic;
+    margin: 0 0 10px 0;
 }
 
 #musicButton {
-    box-shadow: 0 5px 15px #159df725;
+    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3);
 }
-/* Biverly's romantic photo gallery */
+
+/* --- Gallery Section --- */
 .gallery-section {
     text-align: center;
     padding: 40px 20px;
     margin-top: 30px;
+    animation: fadeInLove 1.5s ease both;
 }
 
 .gallery-section h2 {
-    color: #ff4f9a;
+    color: #d63384;
     font-size: 30px;
     margin-bottom: 10px;
 }
 
 .gallery-section p {
-    color: #ffffff;
+    color: #666;
     font-size: 16px;
     margin-bottom: 25px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive */
     gap: 18px;
     max-width: 900px;
     margin: 0 auto;
@@ -156,38 +178,20 @@ button:hover {
     height: 250px;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(255, 79, 154, 0.35);
+    box-shadow: 0 5px 20px rgba(214, 51, 132, 0.35);
     border: 3px solid #ffb6d5;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 28px rgba(255, 79, 154, 0.6);
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.75);
 }
 
-/* Make the gallery fit smaller screens */
-@media (max-width: 600px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .gallery img {
-        height: 180px;
-    }
-
-    .gallery-section h2 {
-        font-size: 24px;
-    }
-}
-/* Clickable photo viewer */
-.gallery img {
-    cursor: pointer;
-}
-
+/* --- Photo Viewer (Lightbox) --- */
 .photo-viewer {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -197,10 +201,7 @@ button:hover {
     padding: 50px 20px 20px;
 }
 
-.photo-viewer.active {
-    display: flex;
-}
-
+/* When JS sets display:flex, these properties take effect */
 .photo-viewer img {
     max-width: 90%;
     max-height: 85vh;
@@ -221,63 +222,14 @@ button:hover {
     border: none;
     font-size: 45px;
     cursor: pointer;
-}.photo-viewer {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.92);
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px 20px;
+    z-index: 10000;
 }
 
-.photo-viewer img {
-    max-width: 90%;
-    max-height: 85vh;
-    object-fit: contain;
+.close-viewer:hover {
+    color: #ff8fc7;
 }
 
-.close-viewer {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 45px;
-    cursor: pointer;
-}
-/* Romantic animations for Biverly ❤️ */
-
-/* Smooth appearance for the gallery */
-.gallery-section {
-    animation: fadeInLove 1.5s ease both;
-}
-
-@keyframes fadeInLove {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Gentle glow around her photos */
-.gallery img {
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
-}
-
-.gallery img:hover {
-    transform: translateY(-7px) scale(1.03);
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.75);
-}
-
-/* Floating hearts */
+/* --- Floating Hearts Animation --- */
 .floating-heart {
     position: fixed;
     bottom: -40px;
@@ -305,21 +257,15 @@ button:hover {
     }
 }
 
-/* Respect visitors who prefer less animation */
+/* --- Accessibility --- */
 @media (prefers-reduced-motion: reduce) {
-    .gallery-section {
+    .gallery-section, .flower {
         animation: none;
     }
-
-    .gallery img {
+    .gallery img, button {
         transition: none;
     }
-
     .floating-heart {
-        animation: none;
         display: none;
     }
 }
-
-
-
