@@ -1,6 +1,5 @@
-
 const button = document.getElementById("loveButton");
-const letter = document.getElementById("lettter");
+const letter = document.getElementById("letter");
 
 button.addEventListener("click", function () {
     letter.classList.toggle("hidden");
@@ -83,5 +82,6 @@ function createFloatingHeart() {
 
 /* Create a new heart every 900 milliseconds */
 setInterval(createFloatingHeart, 900);
+
 
 
